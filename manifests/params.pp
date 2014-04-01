@@ -38,7 +38,19 @@ class ntp::params {
         '3.debian.pool.ntp.org iburst',
       ]
     }
-    'Debian': {
+    'Solaris': {
+      $config          = '/etc/inet/ntp.conf'
+      $driftfile       = '/var/ntp/ntp.drift'
+      $keys_file       = '/etc/inet/ntp.keys'
+      $package_name    = ['ntp']
+      $service_name    = 'network/ntp'
+      $servers         = [
+        '0.freebsd.pool.ntp.org iburst maxpoll 9',
+        '1.freebsd.pool.ntp.org iburst maxpoll 9',
+        '2.freebsd.pool.ntp.org iburst maxpoll 9',
+        '3.freebsd.pool.ntp.org iburst maxpoll 9',
+      ]
+    }    'Debian': {
       $config          = '/etc/ntp.conf'
       $keys_file       = '/etc/ntp/keys'
       $driftfile       = '/var/lib/ntp/drift'
