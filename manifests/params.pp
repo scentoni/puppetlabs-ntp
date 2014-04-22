@@ -50,7 +50,8 @@ class ntp::params {
         '2.freebsd.pool.ntp.org iburst maxpoll 9',
         '3.freebsd.pool.ntp.org iburst maxpoll 9',
       ]
-    }    'Debian': {
+    }
+    'Debian': {
       $config          = '/etc/ntp.conf'
       $keys_file       = '/etc/ntp/keys'
       $driftfile       = '/var/lib/ntp/drift'
