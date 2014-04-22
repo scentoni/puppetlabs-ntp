@@ -49,6 +49,12 @@
       ]
     },
     {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10_u9"
+      ]
+    },
+    {
       "operatingsystem": "AIX",
       "operatingsystemrelease": [
         "5.3",
