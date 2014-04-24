@@ -42,8 +42,22 @@ class ntp::params {
       $config          = '/etc/inet/ntp.conf'
       $driftfile       = '/var/ntp/ntp.drift'
       $keys_file       = '/etc/inet/ntp.keys'
-      $package_name    = ['ntp']
-      $service_name    = 'network/ntp'
+      case $::kernelrelease {
+        '5.9','5.10': {
+          $package_name = [ 'SUNWntp4r', 'SUNWntp4u' ]
+        }
+        '5.11': {
+          $package_name = [ 'network/ntp' ]
+        }
+        default: {
+          fail("The ntp module supports Solaris kernel release 5.9, 5.10 and 5.11. You are running ${::kernelrelease}.")
+        }
+      }
+      $restrict          = [
+        'default nomodify notrap nopeer noquery',
+        '127.0.0.1',
+      ]
+      $service_name    = 'ntp'
       $servers         = [
         '0.freebsd.pool.ntp.org iburst maxpoll 9',
         '1.freebsd.pool.ntp.org iburst maxpoll 9',

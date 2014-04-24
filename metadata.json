@@ -51,7 +51,9 @@
     {
       "operatingsystem": "Solaris",
       "operatingsystemrelease": [
-        "10_u9"
+        "9",
+        "10",
+        "11"
       ]
     },
     {
